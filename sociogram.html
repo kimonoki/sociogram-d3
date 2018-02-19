@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, user-scalable=yes">
+        <title>Sociogram D3</title>
+        <script src="https://unpkg.com/jquery"></script>
+        <body>
+            <div class="container">
+                <div class="svg-container">
+                </div>
+                <div class="iconselector-container">
+                    <div class="row">
+                        <div class="col-lg-1">
+                        </div>
+                        <div class="card-title mt-3 col-lg-12">
+                            <h2 class="questiontitle">Add your family members</h2>
+                        </div>
+                    </div>
+
+                    <div class="card ">
+                        <div class="card-body meinput">
+                            <div class="form-row">
+                                <h5>Me: <br> <span class="highlight-yellow">(click and choose an icon to represent you)</span></h5>
+                                <div class="col-lg-4"></div>
+                                <div class="form-group">
+                                    <div class="icon-selector" id="iconselect-0">
+                                        <input id="familyiconme-2" type="radio" name="familyiconme" value="familyicon-2" />
+                                        <label class="iconlabel familyicon-2"for="familyiconme-2"></label>
+                                        <input id="familyiconme-3" type="radio" name="familyiconme" value="familyicon-3" />
+                                        <label class="iconlabel familyicon-3"for="familyiconme-3"></label>
+                                        <input id="familyiconme-4" type="radio" name="familyiconme" value="familyicon-4" />
+                                        <label class="iconlabel familyicon-4"for="familyiconme-4"></label>
+                                        <input id="familyiconme-5" type="radio" name="familyiconme" value="familyicon-5" />
+                                        <label class="iconlabel familyicon-5"for="familyiconme-5"></label>
+                                    </div>
+                                    <div class="alert alert-danger" role="alert" id="iconme-alert" style="display:none">
+                                        Plese select an icon to represent you!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body"><h5>People in my family</h5></div>
+                        <div class="alert alert-info" role="alert">
+                            <em>Please Add No More Than 10 Family Members </em>
+                        </div>
+                        <div class="card-body  familyinput " id="familyinput-0">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="familyname-0" >Name:</label>
+                                    <input type="text" class="familyname form-control" id='familyname-0' >
+                                </div>
+                                <div class="col">
+                                    <label for="familyrelationship-0">This person is my:</label>
+                                    <input type="text"  class="familyrelationship form-control" id='familyrelationship-0'>
+                                </div>
+                                <div class="col">
+                                    <label for="icon-selector-0">Choose an avatar from below</label>
+                                    <div class="icon-selector" id="icon-selector-0">
+                                        <input id="familyicon-0" type="radio" name="familyicon0" value="familyicon-0"  />
+                                        <label class="iconlabel familyicon-0" for="familyicon-0" data-toggle="tooltip" title="little boy"></label>
+                                        <input id="familyicon-1" type="radio" name="familyicon0" value="familyicon-1" />
+                                        <label class="iconlabel familyicon-1"for="familyicon-1" data-toggle="tooltip" title="little girl"></label>
+                                        <input id="familyicon-2" type="radio" name="familyicon0" value="familyicon-2" />
+                                        <label class="iconlabel familyicon-2"for="familyicon-2"></label>
+                                        <input id="familyicon-3" type="radio" name="familyicon0" value="familyicon-3" />
+                                        <label class="iconlabel familyicon-3"for="familyicon-3"></label>
+                                        <input id="familyicon-4" type="radio" name="familyicon0" value="familyicon-4" />
+                                        <label class="iconlabel familyicon-4"for="familyicon-4"></label>
+                                        <input id="familyicon-5" type="radio" name="familyicon0" value="familyicon-5" />
+                                        <label class="iconlabel familyicon-5"for="familyicon-5"></label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="alert alert-danger" role="alert" id="alert-0" style="display:none">
+                                Plese input your family member's information!
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="col-lg-4" ></div>
+                                <button class="btn-info  btn col-lg-4 " onclick="addNewMember()" id="addnewinput">Add another </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mb-5 mt-5">
+                        <input id="familymember-submit" type="button"  value="Next" onclick="start('<%=Data.respondentType%>')" class="btn btn-blue col-lg-2 ">
+                    </div>
+                </div>
+            </div>
+        </div>
+            <script src="https://unpkg.com/d3"></script>
+        <script src="script.js">
+        </script>
+    </body>
+</html>

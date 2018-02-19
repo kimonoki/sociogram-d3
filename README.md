@@ -1,2 +1,2 @@
 # sociogram-d3
-Using D3JS to create a sociogram/mapping relationships with links and nodes
+Using D3JS to create a sociogram with links and nodes
