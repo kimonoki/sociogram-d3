@@ -33,7 +33,7 @@ function addNewMember() {
 	if (checkInput() && memberNumber < 10) {
 		//will not render new position if no input is given
 		$(".iconselector-container").append(
-			"<fieldset>"+
+			"<fieldset>" +
 			"<div class='card-body  familyinput' id='familyinput-" + memberNumber + "'>" +
 			'<button  class="btn btn-danger" onclick="removeMember(this)">Remove</button>' +
 			'<div class="form-row">' +
@@ -62,7 +62,7 @@ function addNewMember() {
 			'<div class="alert alert-danger" role="alert" id="alert-' + memberNumber + '" style="display:none">' +
 			' Plese input your family member\'s information!' +
 			' </div>' +
-			"</div>"+
+			"</div>" +
 			"</fieldset>"
 
 		);
@@ -94,11 +94,8 @@ function start() {
 		var x = 200;
 		var y = 200;
 
-
-
 		//initialise user's data
 		var meData = {
-
 			name: "me",
 			relationship: "N/A",
 			id: 0,
@@ -149,7 +146,6 @@ function start() {
 }
 
 
-
 // d3v4
 //data for nodes and links
 var data = {
@@ -167,7 +163,7 @@ var svg, layer0, layer1, layer2, links, nodes, texts
 
 
 //main function
-function startMapping(respondenttype) {
+function startMapping() {
 	$("#familymappingsubmit").show();
 	$('#familytutorial').show();
 
@@ -205,7 +201,7 @@ function startMapping(respondenttype) {
 
 
 
-	// target to generate the target: three circles
+	// data to generate the target: three circles
 	//origin:(400,300)
 	var targetData = [{
 		cx: 400,
@@ -348,24 +344,23 @@ function startMapping(respondenttype) {
 
 			if (x > 0 && y > 0 && x < 800 && y < 600) {
 
-					//change data.nodes 
-					d3.select(this).datum().x = d3.event.x;
-					d3.select(this).datum().y = d3.event.y;
+				//change data.nodes
+				d3.select(this).datum().x = d3.event.x;
+				d3.select(this).datum().y = d3.event.y;
 
-					//change texts position
-					texts.remove().exit();
-					reDrawTexts();
-					d3.select(this).attr("x", x).attr("y", y);
-					//change link position
-					thisNode = d3.select(this).datum().id;
-					d3.selectAll('line').each(function(l, i) {
-						if (l.source == thisNode) {
-							d3.select(this).attr("x1", x).attr("y1", y).attr("transform", "translate(" + 30 + "," + 30 + ")");
-						} else if (l.target == thisNode) {
-							d3.select(this).attr("x2", x).attr("y2", y).attr("transform", "translate(" + 30 + "," + 30 + ")");
-						}
-					});
-
+				//change texts position
+				texts.remove().exit();
+				reDrawTexts();
+				d3.select(this).attr("x", x).attr("y", y);
+				//change link position
+				thisNode = d3.select(this).datum().id;
+				d3.selectAll('line').each(function(l, i) {
+					if (l.source == thisNode) {
+						d3.select(this).attr("x1", x).attr("y1", y).attr("transform", "translate(" + 30 + "," + 30 + ")");
+					} else if (l.target == thisNode) {
+						d3.select(this).attr("x2", x).attr("y2", y).attr("transform", "translate(" + 30 + "," + 30 + ")");
+					}
+				});
 
 
 
@@ -488,6 +483,5 @@ function redrawLinks() {
 		.attr("stroke", "black")
 		.attr("stroke-width", 2)
 		.attr("transform", "translate(" + 30 + "," + 30 + ")")
-	    .attr("marker-end", "url(#arrow)");
+		.attr("marker-end", "url(#arrow)");
 }
-
