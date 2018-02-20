@@ -56,10 +56,6 @@ function addNewMember() {
 			'<label class="iconlabel familyicon-2"for="familyicon-2' + memberNumber + '"></label>' +
 			'<input id="familyicon-3' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-3" />' +
 			'<label class="iconlabel familyicon-3"for="familyicon-3' + memberNumber + '"></label>' +
-			'<input id="familyicon-4' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-4" />' +
-			'<label class="iconlabel familyicon-4"for="familyicon-4' + memberNumber + '"></label>' +
-			'<input id="familyicon-5' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-5" />' +
-			'<label class="iconlabel familyicon-5"for="familyicon-5' + memberNumber + '"></label>' +
 			'</div>' +
 			'</div>' +
 			'</div>' +
@@ -76,7 +72,7 @@ function addNewMember() {
 		$(".iconselector-container").append(
 			'  <div class="form-row">' +
 			'<div class="col-lg-4" ></div>' +
-			'   <button class="btn-info col-lg-4 btn  ml-3 mr-3  mb-3" onclick="addNewMember()" id="addnewinput">Add another family member</button>' +
+			'   <button onclick="addNewMember()" id="addnewinput">Add another family member</button>' +
 			'</div>' +
 			' </div>'
 		)
@@ -161,7 +157,7 @@ var data = {
 	links: []
 };
 //avatar urls
-var familyimages = ["https://brain-survey.com/images/familymembers-icon/1.png", "https://brain-survey.com/images/familymembers-icon/2.png", "https://brain-survey.com/images/familymembers-icon/3.png", "https://brain-survey.com/images/familymembers-icon/4.png", "https://brain-survey.com/images/familymembers-icon/5.png", "https://brain-survey.com/images/familymembers-icon/6.png"]
+var familyimages = ["icon-1.png", "icon-2.png", "icon-3.png", "icon-4.png"]
 var tempLink = {
 	firstNode: null,
 	secondNode: null
@@ -352,8 +348,6 @@ function startMapping(respondenttype) {
 
 			if (x > 0 && y > 0 && x < 800 && y < 600) {
 
-				//change node position except the me node
-				if (d3.select(this).datum().id != 0) {
 					//change data.nodes 
 					d3.select(this).datum().x = d3.event.x;
 					d3.select(this).datum().y = d3.event.y;
@@ -371,7 +365,7 @@ function startMapping(respondenttype) {
 							d3.select(this).attr("x2", x).attr("y2", y).attr("transform", "translate(" + 30 + "," + 30 + ")");
 						}
 					});
-				}
+
 
 
 
