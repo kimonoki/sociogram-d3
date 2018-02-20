@@ -40,13 +40,13 @@
 
 
               </fieldset>
-
+            <em>Please Add No More Than 10 Family Members </em><br>
                     <fieldset>
                         <legend>
                             People in my family
 
                         </legend>
-                         <em>Please Add No More Than 10 Family Members </em><br>
+
                         <label for="familyname-0" >Name:</label><br>
                         <input type="text" class="familyname form-control" id='familyname-0' ><br>
 
@@ -76,10 +76,11 @@
                             </div>
 
 
-                     <button class="btn-info  btn col-lg-4 " onclick="addNewMember()" id="addnewinput">Add another </button>
-                     <input id="familymember-submit" type="button"  value="Next" onclick="start('<%=Data.respondentType%>')" class="btn btn-blue col-lg-2 ">
+
 
                 </div>
+                <button class="btn-info  btn col-lg-4 " onclick="addNewMember()" id="addnewinput">Add another family member</button>
+                <input id="familymember-submit" type="button"  value="Next" onclick="start('<%=Data.respondentType%>')" class="btn btn-blue col-lg-2 ">
             </div>
         </div>
             <script src="https://unpkg.com/d3"></script>

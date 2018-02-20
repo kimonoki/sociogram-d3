@@ -32,16 +32,17 @@ function checkInput() {
 function addNewMember() {
 	if (checkInput() && memberNumber < 10) {
 		//will not render new position if no input is given
-		$(".card").append(
+		$(".iconselector-container").append(
+			"<fieldset>"+
 			"<div class='card-body  familyinput' id='familyinput-" + memberNumber + "'>" +
 			'<button  class="btn btn-danger" onclick="removeMember(this)">Remove</button>' +
 			'<div class="form-row">' +
 			'<div class="col">' +
-			"<label for='familyname-" + memberNumber + "'>Name:</label>" +
+			"<label for='familyname-" + memberNumber + "'>Name:</label><br>" +
 			"<input type='text' class='familyname form-control' id='familyname-" + memberNumber + "'>" +
 			'</div>' +
 			' <div class="col">' +
-			"<label for='familyrelationship-" + memberNumber + "'>This person is my:</label>" +
+			"<label for='familyrelationship-" + memberNumber + "'>This person is my:</label><br>" +
 			"<input type='text'  id='familyrelationship-" + memberNumber + "' class='familyrelationship form-control'>" +
 			'</div>' +
 			' <div class="col">' +
@@ -65,13 +66,14 @@ function addNewMember() {
 			'<div class="alert alert-danger" role="alert" id="alert-' + memberNumber + '" style="display:none">' +
 			' Plese input your family member\'s information!' +
 			' </div>' +
-			"</div>"
+			"</div>"+
+			"</fieldset>"
 
 		);
 
 		//new position of the add button
 		$('#addnewinput').remove();
-		$(".card").append(
+		$(".iconselector-container").append(
 			'  <div class="form-row">' +
 			'<div class="col-lg-4" ></div>' +
 			'   <button class="btn-info col-lg-4 btn  ml-3 mr-3  mb-3" onclick="addNewMember()" id="addnewinput">Add another family member</button>' +
@@ -85,7 +87,7 @@ function addNewMember() {
 
 //remove a family member's input field when it is not wanted
 function removeMember(a) {
-	$(a).parent().remove()
+	$(a).parent().parent().remove()
 }
 
 //prepare the data for the mapping, check the input and start the mapping
