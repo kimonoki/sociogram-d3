@@ -191,7 +191,7 @@ function startMapping() {
 			return d;
 		})
 		.attr("viewBox", "0 -5 10 10")
-		.attr("refX", 20)
+		.attr("refX", 30)
 		.attr("refY", 0)
 		.attr("markerWidth", 10)
 		.attr("markerHeight", 10)
@@ -377,6 +377,8 @@ function startMapping() {
 		.text(function(d, i) {
 			return d.name;
 		})
+        .attr('fill','#FCB4BC')
+        .attr('font-size','20px')
 		.attr("x", function(d, i) {
 			if (i > 5) {
 				return d.x + 80
@@ -432,6 +434,8 @@ function reDrawTexts() {
 		.text(function(d, i) {
 			return d.name;
 		})
+        .attr('fill','#FCB4BC')
+        .attr('font-size','20px')
 		.attr("x", function(d, i) {
 			return d.x
 		})
