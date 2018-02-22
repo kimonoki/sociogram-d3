@@ -161,7 +161,6 @@ var tempLink = {
 //svg elements
 var svg, layer0, layer1, layer2, links, nodes, texts
 
-
 //main function
 function startMapping() {
 	$("#familymappingsubmit").show();
@@ -269,7 +268,7 @@ function startMapping() {
 		.attr("height", 50)
 		.attr("x", function(d, i) {
 			if (i > 5) {
-				return d.x + 80
+				return d.x += 80
 			} else {
 				return d.x
 			}
@@ -340,14 +339,11 @@ function startMapping() {
 			x = d3.event.x;
 			y = d3.event.y;
 
-
-
 			if (x > 0 && y > 0 && x < 800 && y < 600) {
 
 				//change data.nodes
 				d3.select(this).datum().x = d3.event.x;
 				d3.select(this).datum().y = d3.event.y;
-
 				//change texts position
 				texts.remove().exit();
 				reDrawTexts();
@@ -356,9 +352,9 @@ function startMapping() {
 				thisNode = d3.select(this).datum().id;
 				d3.selectAll('line').each(function(l, i) {
 					if (l.source == thisNode) {
-						d3.select(this).attr("x1", x).attr("y1", y).attr("transform", "translate(" + 30 + "," + 30 + ")");
+						d3.select(this).attr("x1", x).attr("y1", y);
 					} else if (l.target == thisNode) {
-						d3.select(this).attr("x2", x).attr("y2", y).attr("transform", "translate(" + 30 + "," + 30 + ")");
+						d3.select(this).attr("x2", x).attr("y2", y);
 					}
 				});
 
@@ -380,11 +376,7 @@ function startMapping() {
         .attr('fill','#FCB4BC')
         .attr('font-size','20px')
 		.attr("x", function(d, i) {
-			if (i > 5) {
-				return d.x + 80
-			} else {
-				return d.x
-			}
+			return d.x
 		})
 		.attr("y", function(d, i) {
 			return d.y
@@ -393,7 +385,6 @@ function startMapping() {
 
 }
 
-
 //draw the connections
 function drawLinks() {
 	links = layer1.selectAll("link")
@@ -401,7 +392,6 @@ function drawLinks() {
 		.enter()
 		.append("line")
 		.attr("class", "link")
-		// .attr("tspan","this")
 		.attr("x1", function(l) {
 			var sourceNode = data.nodes.filter(function(d, i) {
 				return i == l.source
@@ -422,11 +412,8 @@ function drawLinks() {
 		.attr("transform", "translate(" + 30 + "," + 30 + ")")
 		.attr("marker-end", "url(#arrow)");
 }
-
-
-//redraw the texts and links when dragged
+//redraw the texts using name
 function reDrawTexts() {
-
 	texts = layer3.selectAll("text")
 		.data(data.nodes)
 		.enter()
@@ -443,25 +430,6 @@ function reDrawTexts() {
 			return d.y
 		});
 }
-
-
-function reDrawTextsUseRelation() {
-	texts = layer3.selectAll("text")
-		.data(data.nodes)
-		.enter()
-		.append('text')
-		.text(function(d, i) {
-			return d.relationship;
-		})
-		.attr("x", function(d, i) {
-			return d.x
-		})
-		.attr("y", function(d, i) {
-			return d.y
-		});
-
-}
-
 
 function redrawLinks() {
 	links = layer1.selectAll("node")
@@ -489,3 +457,22 @@ function redrawLinks() {
 		.attr("transform", "translate(" + 30 + "," + 30 + ")")
 		.attr("marker-end", "url(#arrow)");
 }
+
+
+// //redraw the texts using relationships
+// function reDrawTextsUseRelation() {
+// 	texts = layer3.selectAll("text")
+// 		.data(data.nodes)
+// 		.enter()
+// 		.append('text')
+// 		.text(function(d, i) {
+// 			return d.relationship;
+// 		})
+// 		.attr("x", function(d, i) {
+// 			return d.x
+// 		})
+// 		.attr("y", function(d, i) {
+// 			return d.y
+// 		});
+//
+// }
