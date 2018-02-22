@@ -46,7 +46,7 @@ function addNewMember() {
 			"<input type='text'  id='familyrelationship-" + memberNumber + "' class='familyrelationship form-control'>" +
 			'</div>' +
 			' <div class="col">' +
-			'<label for="icon-selector-' + memberNumber + '">Choose an avtar from below</label>' +
+			'<label for="icon-selector-' + memberNumber + '">Choose an avatar from below</label>' +
 			'<div class="icon-selector">' +
             '<img src="icon-1.png" alt="">'+
 			'<input id="familyicon-0' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-0" />' +
