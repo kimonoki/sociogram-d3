@@ -48,12 +48,16 @@ function addNewMember() {
 			' <div class="col">' +
 			'<label for="icon-selector-' + memberNumber + '">Choose an avtar from below</label>' +
 			'<div class="icon-selector">' +
+            '<img src="icon-1.png" alt="">'+
 			'<input id="familyicon-0' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-0" />' +
 			'<label class="iconlabel familyicon-0" for="familyicon-0' + memberNumber + '"></label>' +
+            '<img src="icon-2.png" alt="">'+
 			'<input id="familyicon-1' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-1" />' +
 			'<label class="iconlabel familyicon-1"for="familyicon-1' + memberNumber + '"></label>' +
+            '<img src="icon-3.png" alt="">'+
 			'<input id="familyicon-2' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-2" />' +
 			'<label class="iconlabel familyicon-2"for="familyicon-2' + memberNumber + '"></label>' +
+            '<img src="icon-4.png" alt="">'+
 			'<input id="familyicon-3' + memberNumber + '" type="radio" name="familyicon' + memberNumber + '" value="familyicon-3" />' +
 			'<label class="iconlabel familyicon-3"for="familyicon-3' + memberNumber + '"></label>' +
 			'</div>' +
