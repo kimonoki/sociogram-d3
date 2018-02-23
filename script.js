@@ -1,10 +1,10 @@
-var memberNumber = 0
+var memberNumber = 0;
 
 //go thorugh the form, add alert for unfilled fields and remove alert for filled fields
 function checkInput() {
 
-	memberNumber = 0
-	var inputcheck = true
+	  memberNumber = 0;
+	  var inputcheck = true;
 
 	$(".familyinput").each(function() {
 		if (!$(this).find(".icon-selector input:checked").val() ||
@@ -16,7 +16,7 @@ function checkInput() {
 		} else {
 			$(this).find(".alert").hide();
 		}
-		memberNumber++
+		  memberNumber++;
 	});
 	if (!$("input[name=familyiconme]:checked").val()) {
 		$(".meinput").find(".alert").show();
@@ -24,7 +24,7 @@ function checkInput() {
 	} else if ($("input[name=familyiconme]:checked").val()) {
 		$(".meinput").find(".alert").hide();
 	}
-	return inputcheck
+	  return inputcheck;
 }
 
 
@@ -79,7 +79,7 @@ function addNewMember() {
 			'   <button onclick="addNewMember()" id="addnewinput">Add another family member</button>' +
 			'</div>' +
 			' </div>'
-		)
+		);
 
 	}
 }
@@ -87,7 +87,7 @@ function addNewMember() {
 
 //remove a family member's input field when it is not wanted
 function removeMember(a) {
-	$(a).parent().parent().remove()
+	  $(a).parent().parent().remove();
 }
 
 //prepare the data for the mapping, check the input and start the mapping
@@ -107,13 +107,13 @@ function start() {
 			y: 300 - 25, //half the width and height of the image
 			avatar: 0
 
-		}
+		};
 		var meIcon = $("input[name=familyiconme]:checked").val();
 		avatar = meIcon.match(/familyicon-(\d+)/)[1];
 		meData.avatar = Number(avatar);
 		data.nodes.push(meData);
 
-		var id = 0; //0 is me, family members start from 1
+		id = 0; //0 is me, family members start from 1
 
 
 
@@ -128,7 +128,7 @@ function start() {
 				x: 0,
 				y: 0,
 				avatar: 0
-			}
+			};
 			var serial = $(this).find('.familyname').attr("id").match(/familyname-(\d+)/)[1];
 			var selectedicon = $('input[name=familyicon' + serial + ']:checked').val();
 			avatar = selectedicon.match(/familyicon-(\d+)/)[1];
@@ -157,13 +157,13 @@ var data = {
 	links: []
 };
 //avatar urls
-var familyimages = ["icon-1.png", "icon-2.png", "icon-3.png", "icon-4.png"]
+var familyimages = ["icon-1.png", "icon-2.png", "icon-3.png", "icon-4.png"];
 var tempLink = {
 	firstNode: null,
 	secondNode: null
-}
+};
 //svg elements
-var svg, layer0, layer1, layer2, links, nodes, texts
+var svg, layer0, layer1, layer2, links, nodes, texts;
 
 //main function
 function startMapping() {
@@ -224,7 +224,7 @@ function startMapping() {
 		r: 80,
 		color: '#2685D4' //deepest color in the middle, representing the closest relationship tp the people in that area
 
-	}]
+	}];
 
 
 
@@ -234,16 +234,16 @@ function startMapping() {
 		.enter()
 		.append('circle')
 		.attr("cx", function(d, i) {
-			return d.cx
+			  return d.cx;
 		})
 		.attr("cy", function(d, i) {
-			return d.cy
+			  return d.cy;
 		})
 		.attr("r", function(d, i) {
-			return d.r
+			  return d.r;
 		})
-		.attr("fill", function(d, i) {
-			return d.color
+		    .attr("fill", function(d, i) {
+			      return d.color;
 		});
 
 
@@ -272,18 +272,18 @@ function startMapping() {
 		.attr("height", 50)
 		.attr("x", function(d, i) {
 			if (i > 5) {
-				return d.x += 80
+				  return d.x += 80;
 			} else {
-				return d.x
+				  return d.x;
 			}
 
 		})
 		.attr("y", function(d, i) {
 
 			if (i > 5) {
-				return d.y += (i - 5) * 80
+				  return d.y += (i - 5) * 80;
 			} else {
-				return d.y += i * 80
+				  return d.y += i * 80;
 			}
 		})
 		.on('click', function() {
@@ -380,10 +380,10 @@ function startMapping() {
         .attr('fill','#FCB4BC')
         .attr('font-size','20px')
 		.attr("x", function(d, i) {
-			return d.x
+			  return d.x;
 		})
 		.attr("y", function(d, i) {
-			return d.y
+			  return d.y;
 		});
 
 
@@ -398,17 +398,17 @@ function drawLinks() {
 		.attr("class", "link")
 		.attr("x1", function(l) {
 			var sourceNode = data.nodes.filter(function(d, i) {
-				return i == l.source
+				  return i == l.source;
 			})[0];
 			d3.select(this).attr("y1", sourceNode.y);
-			return sourceNode.x
+			  return sourceNode.x;
 		})
 		.attr("x2", function(l) {
 			var targetNode = data.nodes.filter(function(d, i) {
-				return i == l.target
+				  return i == l.target;
 			})[0];
 			d3.select(this).attr("y2", targetNode.y);
-			return targetNode.x
+			  return targetNode.x;
 		})
 		.attr("fill", "none")
 		.attr("stroke", "black")
@@ -428,10 +428,10 @@ function reDrawTexts() {
         .attr('fill','#FCB4BC')
         .attr('font-size','20px')
 		.attr("x", function(d, i) {
-			return d.x
+			  return d.x;
 		})
 		.attr("y", function(d, i) {
-			return d.y
+			  return d.y;
 		});
 }
 
@@ -443,17 +443,17 @@ function redrawLinks() {
 		.attr("class", "link")
 		.attr("x1", function(l) {
 			var sourceNode = data.nodes.filter(function(d, i) {
-				return i == l.source
+				  return i == l.source;
 			})[0];
 			d3.select(this).attr("y1", sourceNode.y);
-			return sourceNode.x
+			  return sourceNode.x;
 		})
 		.attr("x2", function(l) {
 			var targetNode = data.nodes.filter(function(d, i) {
-				return i == l.target
+				  return i == l.target;
 			})[0];
 			d3.select(this).attr("y2", targetNode.y);
-			return targetNode.x
+			  return targetNode.x;
 		})
 		.attr("fill", "none")
 		.attr("stroke", "black")
