@@ -222,7 +222,7 @@ function startMapping() {
 		cx: 400,
 		cy: 300,
 		r: 80,
-		color: '#2685D4' //deepest color in the middle, representing the closest relationship tp the people in that area
+		color: '#2685D4' //deepest color in the middle, representing the closest relationship with the people in that area
 
 	}];
 
